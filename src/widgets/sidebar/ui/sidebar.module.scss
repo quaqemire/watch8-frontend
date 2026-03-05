@@ -1,0 +1,28 @@
+.sidebar {
+	width: var(--sidebar-width);
+	min-height: calc(100vh - var(--navbar-height));
+	background: var(--inverted-bg-color);
+	border-right: 1px solid #e2e2e2;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	transition: width 0.3s;
+}
+
+.collapsed {
+	width: var(--sidebar-width-collapsed);
+}
+
+.sidebar_links {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.switchers {
+	position: absolute;
+	bottom: 20px;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}

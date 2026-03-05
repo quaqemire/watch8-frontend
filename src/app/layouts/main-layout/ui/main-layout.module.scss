@@ -1,0 +1,11 @@
+.layout {
+	display: flex;
+	height: calc(100vh - var(--navbar-height));
+}
+
+.content {
+	flex: 1;
+	padding: 10px;
+	overflow-y: auto;
+	background: var(--bg-color);
+}
