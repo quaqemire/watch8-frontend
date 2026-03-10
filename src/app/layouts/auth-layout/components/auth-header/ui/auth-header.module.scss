@@ -1,0 +1,26 @@
+.header {
+	height: var(--navbar-height);
+	padding: 0 60px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	background: var(--inverted-bg-color);
+	border-bottom: 1px solid #f0f0f0;
+
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+
+	.brand {
+		cursor: pointer;
+	}
+}
+
+.auth {
+	display: flex;
+	gap: 15px;
+	.link {
+		cursor: pointer;
+		color: var(--secondary-color);
+	}
+}

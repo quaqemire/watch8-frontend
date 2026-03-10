@@ -9,7 +9,6 @@ export const App = () => {
 	return (
 		<div className={`app ${theme}`}>
 			<Suspense fallback=''>
-				<Header />
 				<AppRouter />
 			</Suspense>
 		</div>
