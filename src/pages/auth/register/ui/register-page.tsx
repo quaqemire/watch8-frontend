@@ -1,23 +1,24 @@
 import { useState } from "react"
-import { AuthApi } from "@/entities/auth/api/auth.api"
 import { useNavigate } from "react-router-dom"
+import { Button } from "@/shared/ui/button"
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch"
+import { register } from "@/shared/store/reducers/auth/auth-slice"
 
 export const RegisterPage = () => {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
-	const [error, setError] = useState("")
-    
-    const navigate = useNavigate()
+
+	const dispatch = useAppDispatch()
+	const navigate = useNavigate()
 
 	const handleRegister = async (e: React.FormEvent) => {
 		e.preventDefault()
 
 		try {
-			await AuthApi.register(email, password)
-
-			navigate('/')
+			await dispatch(register({ email, password })).unwrap()
+			navigate("/")
 		} catch (e: any) {
-			setError(e.response?.data?.message || "Ошибка регистрации")
+			throw new Error(e)
 		}
 	}
 
@@ -40,10 +41,8 @@ export const RegisterPage = () => {
 					onChange={(e) => setPassword(e.target.value)}
 				/>
 
-				<button type='submit'>Зарегистрироваться</button>
+				<Button type='submit'>Зарегистрироваться</Button>
 			</form>
-
-			{error && <p>{error}</p>}
 		</div>
 	)
 }
